@@ -16,7 +16,7 @@ from sklearn.linear_model import LogisticRegression
 
 @st.cache
 def data():
-    df = pd.read_csv('Deployment\cleaned_df.csv')
+    df = pd.read_csv('Deployment/cleaned_df.csv')
     X_train, X_test, y_train, y_test = train_test_split(df['Review'], df['Rating'], test_size=0.2)
 
     return X_train, X_test, y_train, y_test
@@ -39,8 +39,8 @@ def dl_prep():
     _, _, y_train, _ = data()
 
     # DL 
-    tokenizer = pickle.load(open('Deployment\tokenizer.pkl', 'rb'))
-    model = tf.keras.models.load_model('Deployment\dl_model.h5')
+    tokenizer = pickle.load(open('Deployment/tokenizer.pkl', 'rb'))
+    model = tf.keras.models.load_model('Deployment/dl_model.h5')
     
     lb = LabelBinarizer()
     train_labels = lb.fit_transform(y_train)
