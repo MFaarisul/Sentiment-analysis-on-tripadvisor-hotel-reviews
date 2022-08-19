@@ -1,0 +1,6 @@
+string
+numpy
+pandas
+tensorflow
+nltk
+scikit-learn
