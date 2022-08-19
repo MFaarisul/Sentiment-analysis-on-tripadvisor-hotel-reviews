@@ -5,6 +5,7 @@ import tensorflow as tf
 import pickle
 import streamlit as st
 # Preprocessing and evaluation
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.model_selection import train_test_split
@@ -16,6 +17,8 @@ from sklearn.linear_model import LogisticRegression
 
 @st.cache
 def data():
+    nltk.download(['popular'])
+    
     df = pd.read_csv('Deployment/cleaned_df.csv')
     X_train, X_test, y_train, y_test = train_test_split(df['Review'], df['Rating'], test_size=0.2)
 
